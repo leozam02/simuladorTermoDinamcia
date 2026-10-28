@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
-const html = fs.readFileSync(require('node:path').join(__dirname, '../simulador_de_termodin_mica_expansi_n_isob_rica.html'), 'utf8');
+const html = fs.readFileSync(require('node:path').join(__dirname, '../index.html'), 'utf8');
 const code = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(m => m[1]).join('\n');
 new vm.Script(code); // Full script syntax, including the 3D implementation.
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
